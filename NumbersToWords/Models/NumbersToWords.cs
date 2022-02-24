@@ -8,7 +8,7 @@ namespace NumbersToWords.Models
     public int NumberToConvert { get; set; }
     public NumberTranslator(int numberToConvert)
     {
-      
+      NumberToConvert = numberToConvert;
     }
   }
 }
