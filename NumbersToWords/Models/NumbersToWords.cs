@@ -14,6 +14,16 @@ namespace NumbersToWords.Models
     {
       string result = "";
       Dictionary<int, string> singleDigits = new Dictionary<int, string>() {
+      {19,"nineteen"},
+      {18,"eighteen"},
+      {17,"seventeen"},
+      {16,"sixteen"},
+      {15,"fifteen"},
+      {14,"fourteen"},
+      {13,"thirteen"},
+      {12,"twelve"},
+      {11,"eleven"},
+      {10,"ten"},
       {9,"nine"},
       {8,"eight"},
       {7,"seven"},
@@ -25,10 +35,27 @@ namespace NumbersToWords.Models
       {1,"one"},
       {0, "zero"}
       };
+
+      Dictionary<int, string> doubleDigits = new Dictionary<int, string>() {
+      {2,"twenty"},
+      {3,"thirty"},
+      {4,"forty"},
+      {5,"fifty"},
+      {6,"sixty"},
+      {7,"seventy"},
+      {8,"eighty"},
+      {9,"ninety"},
+      };
       
-      if (NumberToConvert <= 9)
+      if (NumberToConvert <= 19)
       {
         result = singleDigits[NumberToConvert];
+      }
+      else if (NumberToConvert > 19 && NumberToConvert < 100 )
+      {
+        string num = NumberToConvert.ToString();
+        char[] numArr = num.ToCharArray();
+        result = doubleDigits[int.Parse((numArr[0]).ToString())] + singleDigits[int.Parse((numArr[1]).ToString())];
       }
       return result;
     }

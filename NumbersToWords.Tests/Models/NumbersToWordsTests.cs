@@ -35,10 +35,10 @@ namespace NumbersToWords.Tests
     [TestMethod]
         public void GetWrittenWords_ConvertDoubleDigitNumberToWord_String()
     {
-      int numberToConvert = 15;
+      int numberToConvert = 25;
       NumberTranslator newTranslator = new NumberTranslator(numberToConvert);
       string result = newTranslator.GetWrittenWords(numberToConvert);
-      Assert.AreEqual("fifteen", result);
+      Assert.AreEqual("twentyfive", result);
     }
   }
 }
