@@ -22,5 +22,14 @@ namespace NumbersToWords.Tests
       int result = newTranslator.NumberToConvert;
       Assert.AreEqual(numberToConvert, result);
     }
+    
+    [TestMethod]
+        public void NumberTranslator_AddNumberToConvert_String()
+    {
+      int numberToConvert = 5;
+      NumberTranslator newTranslator = new NumberTranslator(numberToConvert);
+      string result = newTranslator.GetWrittenWords(numberToConvert);
+      Assert.AreEqual("five", result);
+    }
   }
 }

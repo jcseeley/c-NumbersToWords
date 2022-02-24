@@ -10,5 +10,9 @@ namespace NumbersToWords.Models
     {
       NumberToConvert = numberToConvert;
     }
+    public string GetWrittenWords(int inputNum)
+    {
+      return "false";
+    }
   }
 }
