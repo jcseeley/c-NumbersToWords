@@ -35,10 +35,19 @@ namespace NumbersToWords.Tests
     [TestMethod]
         public void GetWrittenWords_ConvertDoubleDigitNumberToWord_String()
     {
-      int numberToConvert = 25;
+      int numberToConvert = 99;
       NumberTranslator newTranslator = new NumberTranslator(numberToConvert);
       string result = newTranslator.GetWrittenWords(numberToConvert);
-      Assert.AreEqual("twentyfive", result);
+      Assert.AreEqual("ninetynine", result);
+    }
+
+    [TestMethod]
+        public void GetWrittenWords_ConvertThreeDigitNumberToWord_String()
+    {
+      int numberToConvert = 222;
+      NumberTranslator newTranslator = new NumberTranslator(numberToConvert);
+      string result = newTranslator.GetWrittenWords(numberToConvert);
+      Assert.AreEqual("twohundredtwentytwo", result);
     }
   }
 }

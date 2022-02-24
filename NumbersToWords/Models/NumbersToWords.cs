@@ -33,7 +33,7 @@ namespace NumbersToWords.Models
       {3,"three"},
       {2,"two"},
       {1,"one"},
-      {0, "zero"}
+      {0,"zero"}
       };
 
       Dictionary<int, string> doubleDigits = new Dictionary<int, string>() {
@@ -46,17 +46,36 @@ namespace NumbersToWords.Models
       {8,"eighty"},
       {9,"ninety"},
       };
+    
+        if (NumberToConvert <= 19)
+        {
+          result = singleDigits[NumberToConvert];
+        }
+        else if (NumberToConvert > 19)
+        {
+          string num = NumberToConvert.ToString();
+          char[] numArr = num.ToCharArray();
+          
+          if(numArr.Length ==2)
+          {
+            if (numArr[1] == '0')
+            {
+              result = doubleDigits[int.Parse((numArr[0]).ToString())];
+            }
+            else
+            {
+              result = doubleDigits[int.Parse((numArr[0]).ToString())] + singleDigits[int.Parse((numArr[1]).ToString())];
+            }
+          }
+          if(numArr.Length ==3)
+          {
+            String hundredDigit= GetWrittenWords(int.Parse((numArr[0]).ToString()));
+            String tenDigit=  numArr[1].ToString()+numArr[2].ToString();
+            String tenDigitWord= GetWrittenWords(int.Parse(tenDigit));
+            result = hundredDigit + "hundred"+tenDigitWord;
+          }
+        }
       
-      if (NumberToConvert <= 19)
-      {
-        result = singleDigits[NumberToConvert];
-      }
-      else if (NumberToConvert > 19 && NumberToConvert < 100 )
-      {
-        string num = NumberToConvert.ToString();
-        char[] numArr = num.ToCharArray();
-        result = doubleDigits[int.Parse((numArr[0]).ToString())] + singleDigits[int.Parse((numArr[1]).ToString())];
-      }
       return result;
     }
   }
