@@ -24,7 +24,7 @@ namespace NumbersToWords.Tests
     }
     
     [TestMethod]
-        public void NumberTranslator_AddNumberToConvert_String()
+        public void GetWrittenWords_ConvertNumberToWord_String()
     {
       int numberToConvert = 5;
       NumberTranslator newTranslator = new NumberTranslator(numberToConvert);
