@@ -12,7 +12,7 @@ namespace NumbersToWords.Models
     }
     public string GetWrittenWords(int NumberToConvert)
     {
-       string result = "";
+      string result = "";
       Dictionary<int, string> singleDigits = new Dictionary<int, string>() {
       {9,"nine"},
       {8,"eight"},

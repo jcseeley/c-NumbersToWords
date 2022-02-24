@@ -31,5 +31,14 @@ namespace NumbersToWords.Tests
       string result = newTranslator.GetWrittenWords(numberToConvert);
       Assert.AreEqual("five", result);
     }
+
+    [TestMethod]
+        public void GetWrittenWords_ConvertDoubleDigitNumberToWord_String()
+    {
+      int numberToConvert = 15;
+      NumberTranslator newTranslator = new NumberTranslator(numberToConvert);
+      string result = newTranslator.GetWrittenWords(numberToConvert);
+      Assert.AreEqual("fifteen", result);
+    }
   }
 }
